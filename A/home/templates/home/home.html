@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3 class="text-center">HOME {{ username }}</h3>
+<h3 class="text-center">HOME</h3>
 {% for car in cars %}
-<p class="text-center">{{ car.name }}</p>
+<a class="text-center" href="{% url 'home:car_detail' car.name %}">{{ car.name }}</a>
 {% endfor %}
 {% endblock %}
