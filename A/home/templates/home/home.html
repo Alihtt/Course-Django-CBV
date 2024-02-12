@@ -3,6 +3,6 @@
 {% block content %}
 <h3 class="text-center">HOME</h3>
 {% for car in cars %}
-<a class="text-center" href="{% url 'home:car_detail' car.name %}">{{ car.name }}</a>
+<p class="text-center">{{ car.name }}</p>
 {% endfor %}
 {% endblock %}
