@@ -1,5 +1,6 @@
-from django.views.generic import ListView, DeleteView, UpdateView
+from django.views.generic import ListView
 from django.urls import reverse_lazy
+from django.contrib.auth import views as auth_views
 from .models import Car
 
 
@@ -9,14 +10,7 @@ class HomeView(ListView):
     model = Car
 
 
-class CarDeleteView(DeleteView):
-    template_name = 'home/delete.html'
-    model = Car
-    success_url = reverse_lazy('home:home')
-
-
-class CarUpdateView(UpdateView):
-    template_name = 'home/update.html'
-    model = Car
-    fields = ('name', 'year')
-    success_url = reverse_lazy('home:home')
+# For simple login page you can use LoginView but if you have complex login view you cant use this class
+class LoginView(auth_views.LoginView):
+    template_name = 'home/login.html'
+    next_page = reverse_lazy('home:home')
